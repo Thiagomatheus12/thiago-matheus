@@ -1,0 +1,9 @@
+<header>
+  <nav class="header__nav">
+    @for (link of headerLinks; track $index) {
+      <ul class="header__links">
+        <li class="header__links">{{ link.link }}</li>
+      </ul>
+    }
+  </nav>
+</header>
