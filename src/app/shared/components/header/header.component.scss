@@ -3,6 +3,10 @@ mat-toolbar {
   padding-top: 1rem;
 }
 
+mat-icon {
+  color: #FFF;
+}
+
 .header {
   width: 100%;
   display: flex;
@@ -10,7 +14,7 @@ mat-toolbar {
   align-items: center;
 
 
-  &__icon {
+  &__logo {
     color: #FFF;
     font-family: Neuzeit Grotesk Bold, sans-serif;
     font-weight: bold;
@@ -58,6 +62,33 @@ mat-toolbar {
     color: #FFF;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
+  }
+
+  &__hamburguer {
+    background-color: transparent;
+    border: transparent;
+  }
+
+  @media (max-width: 768px) {
+      flex-direction: column;
+      position: relative;
+      width: 100%;
+
+      &__logo {
+        order: 1;
+        align-self: flex-start;
+      }
+
+      &__icon {
+        position: absolute;
+        right: 0;
+      }
+
+    &__nav {
+      width: 100%;
+      order: 2;
+      overflow-y: scroll;
+    }
   }
 }
 

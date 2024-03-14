@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing: border-box; color: #FFF; background: #000;}
+body { margin: 0;
+  font-family: Roboto,
+  "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  color: #FFF;
+  background: #000;
+}
 
 a {
   text-decoration: none;
@@ -10,5 +16,12 @@ a {
 
 ul {
   list-style: none;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
