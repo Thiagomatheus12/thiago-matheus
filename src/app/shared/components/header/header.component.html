@@ -2,17 +2,18 @@
   <div class="header">
     <a class="header__logo header__links" href="/">T</a>
 
-    <nav class="header__nav">
-      @for (link of headerLinks; track $index) {
-        <ul class="header__list">
-          <li>
-              <a class="header__links" [href]="link.href">
-                {{ link.link }}
-              </a>
-          </li>
-        </ul>
-      }
-    </nav>
+      <nav class="header__nav">
+        @for (link of headerLinks; track $index) {
+          <ul class="header__list">
+            <li>
+                <a class="header__links" [href]="link.href">
+                  {{ link.link }}
+                </a>
+            </li>
+          </ul>
+        }
+      </nav>
+
 
     <a class="header__links header__icon">
       <mat-icon> share </mat-icon>

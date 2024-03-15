@@ -1,6 +1,6 @@
 mat-toolbar {
   background: #000;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 
 mat-icon {
@@ -12,7 +12,6 @@ mat-icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 
   &__logo {
     color: #FFF;
@@ -27,7 +26,8 @@ mat-icon {
 
   &__nav {
     display: flex;
-    font-size: .875rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.2rem;
   }
 
   &__list {
@@ -39,6 +39,7 @@ mat-icon {
     z-index: 0;
     padding: 0 1rem ;
     color: #8f9ba8;
+    font-size: 1rem;
 
     &:hover {
       color: #FFF;
@@ -88,6 +89,7 @@ mat-icon {
       width: 100%;
       order: 2;
       overflow-y: scroll;
+      letter-spacing: 0.1rem;
     }
   }
 }
