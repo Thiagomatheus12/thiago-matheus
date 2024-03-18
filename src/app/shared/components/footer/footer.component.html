@@ -1,13 +1,16 @@
 <div class="footer">
   <nav class="footer__nav">
     @for (link of footerLinks; track $index) {
-      <ul class="footer__list">
-        <li>
-            <a class="footer__links" [href]="link.href">
-              {{ link.link }}
-            </a>
-        </li>
-      </ul>
+    <ul class="footer__list">
+      <li class="footer__links">
+        <a target="_blank" class="footer__link" [href]="link.href">
+          {{ link.link }}
+        </a>
+        <a class="footer__icons" target="_blank" [href]="link.href">
+          <img [ngSrc]="link.src" alt="" width="20" height="20">
+        </a>
+      </li>
+    </ul>
     }
   </nav>
 </div>

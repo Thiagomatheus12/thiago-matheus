@@ -5,8 +5,53 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 1rem;
 
   &__nav {
     display: flex;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-right: 1.5rem;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+  &__link {
+    color: #8f9ba8;
+  }
+
+  &__link:hover {
+    transition: color 0.3s ease-in-out;
+    color: #FFF;
+  }
+
+  &__links:hover &__link {
+    transition: color 0.3s ease-in-out;
+    color: #FFF;
+  }
+
+  &__links:hover &__icons {
+    display: flex;
+    color: #FFF;
+  }
+
+  &__icons {
+    display: none;
+    position: absolute;
+    right: 0;
+  }
+
+  @media (max-width: 768px) {
+    &__link {
+      display: none;
+    }
+
+    &__icons {
+      display: flex;
+    }
   }
 }
