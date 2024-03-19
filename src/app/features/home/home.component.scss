@@ -47,6 +47,7 @@ mat-icon {
     padding: 0;
     cursor: pointer;
     position: relative;
+    z-index: 1;
 
     &:hover {
       color: #FFF;
