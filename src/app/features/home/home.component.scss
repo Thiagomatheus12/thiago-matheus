@@ -25,6 +25,7 @@ mat-icon {
   &__subtitle {
     color: #8f9ba8;
     font-size: 1.3rem;
+    padding-top: 2rem;
   }
 
   &__background {
@@ -47,10 +48,28 @@ mat-icon {
     padding: 0;
     cursor: pointer;
     position: relative;
+    z-index: 1;
 
     &:hover {
       color: #FFF;
     }
+  }
+
+  &__dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: max-content;
+    height: max-content;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 10;
+  }
+
+  &__links {
+    color: #08070b;
   }
 
   &__button::before {

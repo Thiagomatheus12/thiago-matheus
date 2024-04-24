@@ -5,10 +5,19 @@
 
       <p class="home__subtitle">obcessed with developer experience</p>
 
-      <button class="home__button">  Press <kbd class="home__background">ctrl</kbd> <kbd class="home__background">K</kbd> to start <mat-icon>arrow_forward</mat-icon></button>
+
+      <div *ngIf="isDialogOpen" class="home__dialog">
+        <input type="text" (input)="filterLinks($event)" placeholder="Search">
+        
+        <ul>
+          <li class="home__links" *ngFor="let link of headerLinks" (click)="closeDialog(); navigateToLink(link.href)">{{ link.link }}</li>
+        </ul>
+      </div>
+
+      <button (click)="openDialog()" (keydown)="openDialog" class="home__button">Click <kbd class="home__background">Crtl</kbd>  <kbd class="home__background">K</kbd>
+        to start <mat-icon>arrow_forward</mat-icon></button>
     </div>
   </div>
-
-  </div>
+</div>
 
 <app-footer></app-footer>
