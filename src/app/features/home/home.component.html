@@ -7,11 +7,15 @@
 
 
       <div *ngIf="isDialogOpen" class="home__dialog">
-        <input type="text" (input)="filterLinks($event)" placeholder="Search">
-        
-        <ul>
-          <li class="home__links" *ngFor="let link of headerLinks" (click)="closeDialog(); navigateToLink(link.href)">{{ link.link }}</li>
-        </ul>
+        <input class="home__search" type="text" (input)="filterLinks($event)" placeholder="Search">
+
+        <div class="home__list">
+          <div class="home__links" *ngFor="let link of headerLinks" (click)="closeDialog(); navigateToLink(link.href)">
+            <div class="home__link">
+              {{ link.link }}
+            </div>
+          </div>
+        </div>
       </div>
 
       <button (click)="openDialog()" (keydown)="openDialog" class="home__button">Click <kbd class="home__background">Crtl</kbd>  <kbd class="home__background">K</kbd>
