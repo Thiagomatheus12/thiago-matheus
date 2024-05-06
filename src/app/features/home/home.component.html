@@ -5,20 +5,12 @@
 
       <p class="home__subtitle">obcessed with developer experience</p>
 
-
       <div *ngIf="isDialogOpen" class="home__dialog">
-        <input class="home__search" type="text" (input)="filterLinks($event)" placeholder="Search">
-
-        <div class="home__list">
-          <div class="home__links" *ngFor="let link of headerLinks" (click)="closeDialog(); navigateToLink(link.href)">
-            <div class="home__link">
-              {{ link.link }}
-            </div>
-          </div>
-        </div>
+        <app-dialog-list></app-dialog-list>
       </div>
 
-      <button (click)="openDialog()" (keydown)="openDialog" class="home__button">Click <kbd class="home__background">Crtl</kbd>  <kbd class="home__background">K</kbd>
+      <button (click)="openDialog()" (keydown)="openDialog" class="home__button">Click <kbd
+          class="home__background">Crtl</kbd> <kbd class="home__background">K</kbd>
         to start <mat-icon>arrow_forward</mat-icon></button>
     </div>
   </div>
