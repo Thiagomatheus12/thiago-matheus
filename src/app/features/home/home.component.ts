@@ -1,9 +1,9 @@
-import { Component, HostListener, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { Router , RouterModule } from '@angular/router';
-import { HeaderComponent } from '../../shared/components/header/header.component';
+import { Router, RouterModule } from '@angular/router';
+import { DialogListComponent } from '../../shared/components/dialog-list/dialog-list.component';
 
 @Component({
   selector: 'app-home',
@@ -12,30 +12,22 @@ import { HeaderComponent } from '../../shared/components/header/header.component
     CommonModule,
     MatIconModule,
     FooterComponent,
-    RouterModule
+    RouterModule,
+    DialogListComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  headerLinks = [
-    {link: 'ABOUT', href: '/about'},
-    {link: 'ARTICLES', href: '/articles'},
-    {link: 'PROJECTS', href: '/projects'},
-    {link: 'TALKS', href: '/taalks'},
-    {link: 'PODCASTS', href: '/podcasts'},
-    {link: 'INVESTING', href: '/investing'},
-    {link: 'USES', href: '/uses'},
-    {link: 'REMINDER', href: '/reminder'},
-  ]
-
-  originalHeaderLinks = [...this.headerLinks];
   isDialogOpen = false;
 
   router = inject(Router);
 
-  constructor() {}
+  constructor(private elementref: ElementRef) { }
+
+  ngOnInit(): void {
+  }
 
   openDialog(): void {
     this.isDialogOpen = true;
@@ -45,24 +37,13 @@ export class HomeComponent {
     this.isDialogOpen = false;
   }
 
-  filterLinks(event: any): void {
-    const searchTerm = event.target.value.toLowerCase();
-    if (searchTerm.trim() === '') {
-      this.headerLinks = [...this.originalHeaderLinks];
-    } else {
-      this.headerLinks = this.originalHeaderLinks.filter(link => link.link.toLowerCase().includes(searchTerm));
-    }
-  }
-
-  navigateToLink(link: string): void {
-    this.router.navigate([link]);
-  }
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.ctrlKey && event.key === 'k') {
       event.preventDefault();
       if (!this.isDialogOpen) {
         this.openDialog();
+
       } else {
         this.closeDialog();
       }
@@ -72,6 +53,9 @@ export class HomeComponent {
     }
   }
 
-
-
+  @HostListener('document:click', ['$event.target'])
+  onCloseClick(target: HTMLElement): void {
+    console.log('target', target.querySelector('.home__'))
+    console.log('target', target)
+  }
 }

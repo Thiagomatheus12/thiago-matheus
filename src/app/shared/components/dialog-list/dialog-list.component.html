@@ -1,0 +1,21 @@
+<div class="dialog">
+  <input #searchInput class="dialog__search" type="text" (input)="filterLinks($event)" aria-expanded="true"
+  placeholder="Type a command or search...">
+
+  <div class="dialog__list">
+  <p class="dialog__go__to">GO TO</p>
+  <div class="dialog__links" *ngFor="let link of headerLinks" (click)="closeDialog(); navigateToLink(link.href)">
+    <div class="dialog__link">
+      {{ link.link }}
+      <div class="dialog__keys">
+        <kbd class="dialog__key">
+          {{ link.key }}
+        </kbd>
+        <kbd class="dialog__key">
+          {{ link.keySecondary }}
+        </kbd>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
